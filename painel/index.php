@@ -1,5 +1,7 @@
 <?php $pageName = 'Painel'; ?>
 <?php include_once('../app/vars.php'); ?>
+<?php include_once('../app/cdn.php'); ?>
+<?php include_once('../app/menu.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -9,6 +11,12 @@
 	<title><?php echo $pageName . ' | ' . $appName ?></title>
 </head>
 <body>
-
+	<div class="container">
+		<div class="row">
+			<div class="module">
+				
+			</div>
+		</div>
+	</div>
 </body>
 </html>
