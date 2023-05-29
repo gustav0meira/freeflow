@@ -4,6 +4,8 @@
 
 Este é um sistema de gestão de projetos dedicado a freelancers, incluindo programadores, designers e copywriters. Foi criado para tornar o gerenciamento de tarefas e projetos mais eficiente e eficaz.
 
+![localhost_freeflow_login_](https://github.com/gustav0meira/freeflow/assets/112213145/559d7c84-1a66-4841-b10a-639e48437287)
+
 ## Características
 
 - **Gestão de Tarefas**: Crie, atribua e acompanhe tarefas com facilidade.
@@ -16,3 +18,5 @@ Este é um sistema de gestão de projetos dedicado a freelancers, incluindo prog
 - **Notificações e Lembretes**: Receba lembretes e atualizações sobre tarefas e projetos.
 - **Gestão de Contratos**: Armazene e acesse contratos de trabalho.
 - **Avaliações e Feedback**: Dê e receba feedback para melhorar e crescer.
+
+![localhost_freeflow_dashboard_](https://github.com/gustav0meira/freeflow/assets/112213145/c99f20f7-37dc-4d79-a51f-cc8fa20bb838)
