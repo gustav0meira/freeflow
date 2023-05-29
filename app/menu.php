@@ -2,12 +2,16 @@
 
 	body{
 		margin: 0px !important;
+		background: #00000005 !important;
 		font-family: Poppins;
 	}
 
 	.menu{
 		background: #191921;
 		width: 17vw;
+		position: fixed;
+		top: 0;
+		left: 0;
 		height: 100vh !important;
 	}
 
@@ -68,6 +72,10 @@
 		background: #1d1d25;
 	}
 
+	.ativo{
+		background: #FFFFFF30 !important;
+	}
+
 </style>
 
 <div class="menu">
@@ -75,8 +83,8 @@
 		<img class="logo" src="<?php echo $appLocal ?>/assets/logo.png">
 		<div class="itens">
 
-			<a href="#">
-				<div class="item">
+			<a href="<?php echo $appLocal ?>/#">
+				<div class="item <?php if($pageName == 'Dashboa'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-chart-pie align"></i>
@@ -88,8 +96,8 @@
 				</div>
 			</a>
 
-			<a href="#">
-				<div class="item">
+			<a href="<?php echo $appLocal ?>/#">
+				<div class="item <?php if($pageName == 'Projeto'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-diagram-project align"></i>
@@ -101,8 +109,8 @@
 				</div>
 			</a>
 
-			<a href="#">
-				<div class="item">
+			<a href="<?php echo $appLocal ?>/#">
+				<div class="item <?php if($pageName == 'Tarefas'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-list-check align"></i>
@@ -114,8 +122,8 @@
 				</div>
 			</a>
 
-			<a href="#">
-				<div class="item">
+			<a href="<?php echo $appLocal ?>/#">
+				<div class="item <?php if($pageName == 'Faturas'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-piggy-bank align"></i>
@@ -127,8 +135,8 @@
 				</div>
 			</a>
 
-			<a href="#">
-				<div class="item">
+			<a href="<?php echo $appLocal ?>/#">
+				<div class="item <?php if($pageName == 'Cliente'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-user align"></i>
@@ -142,10 +150,80 @@
 
 			<div class="fastLink">
 				<label class="fastLink">Links Rápidos</label><br>
-				<a href="#"><label class="itemFast">FAQ</label></a><br>
-				<a href="#"><label class="itemFast">Central de Ajuda</label></a><br>
+				<a href="<?php echo $appLocal ?>/#"><label class="itemFast">FAQ</label></a><br>
+				<a href="<?php echo $appLocal ?>/#"><label class="itemFast">Central de Ajuda</label></a><br>
 			</div>
 
+		</div>
+	</div>
+</div>
+
+
+<style>
+	.menuTop{
+		position: absolute;
+		padding: 30px 75px 30px calc(17vw + 75px);
+		width: 100%;
+		left: 0;
+		top: 0;
+	}
+	.right{
+		float: right !important;
+	}
+	.icons svg{
+		font-size: 18px;
+		color: #444 !important;
+		margin-left: 20px;
+	}
+	.no-button{
+		background: transparent !important;
+		padding: 0px !important;
+		border: none !important;
+	}
+	.dropdown-menu{
+		border: none !important;
+		font-weight: 300 !important;
+		border-radius: 15px !important;
+		box-shadow: 0px 0px 50px -20px rgba(0,0,0,0.1);
+	}
+	.dropdown-item{
+		color: #444 !important;
+		font-weight: 300 !important;
+	}
+	.dropdown hr{
+		border-color: #00000030;
+	}
+</style>
+
+<div class="menuTop">
+	<div class="row">
+		<div class="col-6">
+			asd
+		</div>
+		<div class="col-6">
+			<div class="right">
+				<div class="icons">
+					<div style="display: inline-block !important;" class="dropdown">
+						<button class="no-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fa-regular fa-bell"></i>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-end">
+							<li><a class="dropdown-item" href="#">Nenhuma Notificação</a></li>
+						</ul>
+					</div>
+					<div style="display: inline-block !important;" class="dropdown">
+						<button class="dropdown-toggle no-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fa-regular fa-user"></i>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Minha Conta</a></li>
+							<li><a class="dropdown-item" href="#">Portfólio</a></li>
+							<hr>
+							<li><a class="dropdown-item" href="#">Sair</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
