@@ -6,7 +6,7 @@ body {
 }
 
 img.logo {
-  margin-top: 100px;
+  margin-top: 40px;
   width: 70px;
 }
 
@@ -14,7 +14,7 @@ img.logo {
   border: 1px solid #303037;
   background-color: #191921;
   position: absolute;
-  top: 25%;
+  top: 17%;
   left: 50%;
   transform: translateY(-50%);
   transform: translateX(-50%);
