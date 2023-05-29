@@ -5,7 +5,7 @@ require_once "../config.php";
 $usuarioSubmetido = $_POST["usuario"];
 $senhaSubmetido = md5(hash('sha256', $_POST["senha"]));
 
-$query = "SELECT * FROM usuarios WHERE usuario = '$usuarioSubmetido'";
+$query = "SELECT * FROM usuarios WHERE usuario = '$usuarioSubmetido' AND status != 'analise'";
 $resultado = mysqli_query($conn, $query);
 
 if ($resultado && mysqli_num_rows($resultado) > 0) {
