@@ -13,15 +13,14 @@
 </head>
 <body>
     <center>
-        <img class="logo" src="../assets/logo_freeflow.png" alt="logo">
+        <img class="logo" src="../assets/logo.png" alt="logo">
 		
         <div class="login">
             <form action="../app/functions/verifyLogin.php" method="post">
-                <input type="email" required placeholder="Nome de usuário" name="email">
-                <input style="margin-bottom: 2px !important;" type="password" required placeholder="Sua senha" name="senha">
-                <p class="form"> <a href="#">Esqueci minha senha</a></p>
+                <input type="text" required placeholder="Nome de usuário" name="usuario">
+                <input type="password" required placeholder="Sua senha" name="senha">
                 <button>Enviar</button>
-                <p class="form">Ainda não tem uma conta? <a href="#">Criar conta</a></p>
+                <p class="form"><a href="#">Esqueci minha senha</a></p>
             </form>
         </div>
 

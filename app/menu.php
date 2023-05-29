@@ -4,9 +4,11 @@
 		margin: 0px !important;
 		background: #00000005 !important;
 		font-family: Poppins;
+		font-size: 0.9rem !important;
 	}
 
 	.menu{
+		font-size: 0.9rem !important;
 		background: #191921;
 		width: 17vw;
 		position: fixed;
@@ -83,8 +85,8 @@
 		<img class="logo" src="<?php echo $appLocal ?>/assets/logo.png">
 		<div class="itens">
 
-			<a href="<?php echo $appLocal ?>/#">
-				<div class="item <?php if($pageName == 'Dashboa'){echo 'ativo';} ?>">
+			<a href="<?php echo $appLocal ?>/dashboard/">
+				<div class="item <?php if($pageName == 'Dashboard'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-chart-pie align"></i>
@@ -162,7 +164,7 @@
 <style>
 	.menuTop{
 		position: absolute;
-		padding: 30px 75px 30px calc(17vw + 75px);
+		padding: 30px 85px 30px calc(17vw + 85px);
 		width: 100%;
 		left: 0;
 		top: 0;
@@ -198,7 +200,7 @@
 <div class="menuTop">
 	<div class="row">
 		<div class="col-6">
-			asd
+			<i class="fa-regular fa-folder"></i><label style="margin-left: 10px; margin-right: 10px;">></label><label><?php echo $pageName ?></label>
 		</div>
 		<div class="col-6">
 			<div class="right">
