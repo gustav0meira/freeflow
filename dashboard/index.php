@@ -78,6 +78,8 @@
 						</div>
 					</div>
 					<div class="col-4">
+						<div style="color: #00000010 !important;" class="topModule"> </div>
+						<img class="ads" src="https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2018/03/Screenshot_1-optimage2.png">
 						<div class="topModule">#faturas</div>
 						<div class="module">
 							<canvas id="myChart"></canvas>
