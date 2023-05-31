@@ -137,8 +137,8 @@
 				</div>
 			</a>
 
-			<a href="<?php echo $appLocal ?>/#">
-				<div class="item <?php if($pageName == 'Cliente'){echo 'ativo';} ?>">
+			<a href="<?php echo $appLocal ?>/clientes/">
+				<div class="item <?php if($pageName == 'Clientes'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
 							<i class="fa-solid fa-user align"></i>
