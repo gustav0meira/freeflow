@@ -1,4 +1,4 @@
-<?php $pageName = 'Projetos'; ?>
+<?php $pageName = 'Tarefas'; ?>
 <?php include_once('../app/config.php'); ?>
 <?php include_once('../app/vars.php'); ?>
 <?php include_once('../app/cdn.php'); ?>
