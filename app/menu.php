@@ -124,7 +124,7 @@
 				</div>
 			</a>
 
-			<a href="<?php echo $appLocal ?>/#">
+			<a href="<?php echo $appLocal ?>/faturas/">
 				<div class="item <?php if($pageName == 'Faturas'){echo 'ativo';} ?>">
 					<div class="row">
 						<div class="col-3" style="text-align: center !important;">
