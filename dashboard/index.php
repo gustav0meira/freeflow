@@ -1,4 +1,5 @@
 <?php $pageName = 'Dashboard'; ?>
+<?php include_once('../app/config.php'); ?>
 <?php include_once('../app/vars.php'); ?>
 <?php include_once('../app/cdn.php'); ?>
 <?php include_once('../app/menu.php'); ?>
@@ -20,6 +21,15 @@
 <body>
 	<div class="container">
 		<div class="row">
+			<?php
+			    $resultado = $conn->query("SELECT SUM(total) AS soma FROM faturas WHERE tipo = 'receber'");
+			    if (!$resultado) {
+			        echo "Erro ao executar a consulta: (" . $conn->errno . ") " . $conn->error;
+			    } else {
+			        $linha = $resultado->fetch_assoc();
+			        $somaReceitas = $linha['soma'];
+			    }
+			?>
 			<div class="col-4">
 				<div class="module">
 					<div class="row">
@@ -28,11 +38,20 @@
 						</div>
 						<div class="col-sm">
 							<label class="title">Receitas:</label><br>
-							<label class="desc">R$ 1.587,00</label>
+							<label class="desc">R$ <?php echo $somaReceitas; ?></label>
 						</div>
 					</div>
 				</div>
 			</div>
+			<?php
+			    $resultado = $conn->query("SELECT COUNT(*) AS contagem FROM projetos WHERE status = 'Em andamento'");
+			    if (!$resultado) {
+			        echo "Erro ao executar a consulta: (" . $conn->errno . ") " . $conn->error;
+			    } else {
+			        $linha = $resultado->fetch_assoc();
+			        $numeroProjetosEmAndamento = $linha['contagem'];
+			    }
+			?>
 			<div class="col-4">
 				<div class="module">
 					<div class="row">
@@ -41,11 +60,20 @@
 						</div>
 						<div class="col-sm">
 							<label class="title">Projetos:</label><br>
-							<label class="desc">12</label>
+							<label class="desc"><?php echo $numeroProjetosEmAndamento; ?></label>
 						</div>
 					</div>
 				</div>
 			</div>
+			<?php
+			    $resultado = $conn->query("SELECT COUNT(*) AS contagem FROM clientes WHERE status = 'Ativo'");
+			    if (!$resultado) {
+			        echo "Erro ao executar a consulta: (" . $conn->errno . ") " . $conn->error;
+			    } else {
+			        $linha = $resultado->fetch_assoc();
+			        $numeroClientesAtivos = $linha['contagem'];
+			    }
+			?>
 			<div class="col-4">
 				<div class="module">
 					<div class="row">
@@ -54,7 +82,7 @@
 						</div>
 						<div class="col-sm">
 							<label class="title">Clientes:</label><br>
-							<label class="desc">12</label>
+							<label class="desc"><?php echo $numeroClientesAtivos; ?></label>
 						</div>
 					</div>
 				</div>
@@ -82,11 +110,11 @@
 						<img class="ads" src="https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2018/03/Screenshot_1-optimage2.png">
 						<div class="topModule">#faturas</div>
 						<div class="module">
-							<canvas id="myChart"></canvas>
+							<canvas id="faturas"></canvas>
 							<div style="margin-top: 30px;">
 								<center>
-									<i style="color: #191921;" class="fa-solid fa-circle faturaBublue"></i><label style="margin-right: 20px;" class="faturaLabel"> Receitas</label>
-									<i style="color: #35424e;" class="fa-solid fa-circle faturaBublue"></i><label class="faturaLabel"> Despesas</label>
+									<i style="color: #191921;" class="fa-solid fa-circle faturaBublue"></i><label style="margin-right: 20px;" class="faturaLabel"> Despesas</label>
+									<i style="color: #35424e;" class="fa-solid fa-circle faturaBublue"></i><label class="faturaLabel"> Receitas</label>
 								</center>
 							</div>
 						</div>
@@ -96,15 +124,24 @@
 		</div>
 	</div>
 </body>
+<?php
+    $resultado = $conn->query("SELECT SUM(total) AS soma FROM faturas WHERE tipo = 'pagar'");
+    if (!$resultado) {
+        echo "Erro ao executar a consulta: (" . $conn->errno . ") " . $conn->error;
+    } else {
+        $linha = $resultado->fetch_assoc();
+        $somaDespesas = $linha['soma'];
+    }
+?>
 <script>
-  const ctx = document.getElementById('myChart');
+  const ctx = document.getElementById('faturas');
 
   new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: ['Receita', 'Despesas'],
       datasets: [{
-        data: [12, 19],
+        data: [<?php echo $somaReceitas; ?>, <?php echo $somaDespesas; ?>],
         backgroundColor: ['#35424e', '#191921'],
         borderWidth: 2
       }]
@@ -134,26 +171,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initialView: 'dayGridDay',
     initialDate: '<?php echo date('Y-m-d'); ?>',
     events: [
+			<?php
+			$hoje = date('Y-m-d');
+			$consulta = "SELECT * FROM eventos WHERE data = '$hoje'";
+			$con = $conn->query($consulta) or die($conn->error);
+			while($dado = $con->fetch_array()) { ?> 
       {
         title: 'Reunião de design do projeto',
-        start: '2023-05-28',
-        end: '2023-05-29T02:00:00'
+        start: '2023-05-28'
       },
-      {
-        title: 'Revisão de código do projeto',
-        start: '2023-05-28',
-        end: '2023-05-29T06:00:00'
-      },
-      {
-        title: 'Brainstorming do projeto W',
-        start: '2023-05-28',
-        end: '2023-05-29T17:00:00'
-      },
-      {
-        title: 'Reunião de planejamento do projeto V',
-        start: '2023-05-28',
-        end: '2023-05-29T12:00:00'
-      },
+			<?php } ?>
     ]
   });
 
